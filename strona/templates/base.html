@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>SztucznaIntuicja </title>
+</head>
+<body>
+    <nav>
+
+        <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo"></a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/data">Data</a>
+        <a href="/projects">Projects</a>
+        <a href="/more">More</a>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        &copy; 2025 My Flask Website. All rights reserved.
+    </footer>
+</body>
+</html>
