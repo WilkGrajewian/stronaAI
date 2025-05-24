@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ebebebe</title>
+  
+   <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+  <div class="matrix" id="matrix"></div>
+  <div class="center-text" id="start-link">Kliknij tutaj, aby zacząć przygodę ze sztuczną inteligencją</div>
+
+  <script>
+    const matrix = document.getElementById('matrix');
+    const cols = Math.floor(window.innerWidth / 20);
+    const symbols = ['0', '1'];
+
+    for (let i = 0; i < cols; i++) {
+      const column = document.createElement('div');
+      column.className = 'column';
+      column.style.left = `${i * 20}px`;
+      column.style.animationDuration = `${6 + Math.random() * 6}s`;
+     
+    for (let j = 0; j < 30; j++) {
+      const span = document.createElement('span');
+      span.className = 'digit'; 
+      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      column.appendChild(span);
+      column.appendChild(document.createElement('br'));
+}
+
+      matrix.appendChild(column);
+}
+
+    document.getElementById('start-link').addEventListener('click', function() {
+      window.location.href = 'base.html';
+    });
+  </script>
+</body>
+</html>
