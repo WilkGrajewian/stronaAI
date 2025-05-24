@@ -2,20 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+     <link rel="stylesheet" href="../static/css/main.css">  
     <title>SztucznaIntuicja </title>
-    <link rel="stylesheet" href="../static/css/main.css">
 </head>
 <body>
-    <nav>
-
-        <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo"></a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/data">Data</a>
-        <a href="/projects">Projects</a>
-        <a href="/more">More</a>
-    </nav>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <title>SztucznaIntuicja </title>
+    </head>
+    <body>
+        <div class="matrix"></div>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="/" class="navbar-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png" alt="Wikipedia Logo" class="logo">
+                </a>
+                <ul class="navbar-menu">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/data">Data</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/more">More</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content" style="position: relative; z-index: 2;">
+            {% block content %}{% endblock %}
+            <div style="margin-top: 2rem; color: #00ff00; font-family: 'Courier New', Courier, monospace;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.<br><br>
+                Pellentesque euismod, nisi eu consectetur consectetur, nisl nisl aliquam nunc, eget aliquam massa nisl quis neque. Suspendisse potenti. Etiam ultricies, justo eu convallis placerat, felis enim ornare urna, nec dictum erat urna non sapien.<br><br>
+                Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit, elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.
+            </div>
+        </div>
+    
+        <footer style="position: relative; z-index: 2;">
+            &copy; 2025 My Flask Website. All rights reserved.
+        </footer>
+        <script>
+     
+        const matrix = document.querySelector('.matrix');
+        const symbols = '0123456789'.split('');
+        const cols = Math.floor(window.innerWidth / 20);
+    
+        for (let i = 0; i < cols; i++) {
+            const column = document.createElement('div');
+            column.className = 'column';
+            column.style.left = `${i * 20}px`;
+            column.style.animationDuration = `${6 + Math.random() * 6}s`;
+    
+            for (let j = 0; j < 30; j++) {
+                const span = document.createElement('span');
+                span.className = 'digit';
+                span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                column.appendChild(span);
+                column.appendChild(document.createElement('br'));
+            }
+            matrix.appendChild(column);
+        }
+        </script>
+    </body>
+    </html>    <div class="matrix"></div>
+ 
     <div class="content">
         {% block content %}{% endblock %}
     </div>
@@ -23,5 +73,21 @@
     <footer>
         &copy; 2025 My Flask Website. All rights reserved.
     </footer>
+    <script>
+        for (let i = 0; i < cols; i++) {
+      const column = document.createElement('div');
+      column.className = 'column';
+      column.style.left = `${i * 20}px`;
+      column.style.animationDuration = `${6 + Math.random() * 6}s`;
+        }
+     
+    for (let j = 0; j < 30; j++) {
+      const span = document.createElement('span');
+      span.className = 'digit'; 
+      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      column.appendChild(span);
+      column.appendChild(document.createElement('br'));
+    }
+    </script>
 </body>
 </html>
